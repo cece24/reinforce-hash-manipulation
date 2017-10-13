@@ -104,8 +104,19 @@ isHosted: false
 
 # puts given_hash[:response][:results][0][:id]
 
+# Part 1
 given_hash[:response][:results].each do |article|
   article["views"] = 0
 end
+
+# Part 2
+def read_article(hash)
+  # randomly select article from an array
+  last_index = hash[:response][:results].length - 1
+  hash[:response][:results][rand(0..last_index)]["views"] += 1
+  # increase views by 1 if selected
+end
+
+read_article(given_hash)
 
 puts given_hash[:response][:results]
