@@ -111,12 +111,24 @@ end
 
 # Part 2
 def read_article(hash)
-  # randomly select article from an array
   last_index = hash[:response][:results].length - 1
   hash[:response][:results][rand(0..last_index)]["views"] += 1
-  # increase views by 1 if selected
+end
+
+# read_article(given_hash)
+# puts given_hash[:response][:results]
+
+def display_views(hash)
+  hash[:response][:results].each do |article|
+    puts "Title: #{ article[:webTitle] } | Views: #{ article["views"] }"
+  end
 end
 
 read_article(given_hash)
-
-puts given_hash[:response][:results]
+read_article(given_hash)
+read_article(given_hash)
+read_article(given_hash)
+read_article(given_hash)
+read_article(given_hash)
+read_article(given_hash)
+display_views(given_hash)
